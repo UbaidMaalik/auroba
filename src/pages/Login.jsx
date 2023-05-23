@@ -1,66 +1,98 @@
-import { useState } from "react";
-import { Form, Button, Image } from "react-bootstrap";
+// import { useState } from "react";
+import { Image } from "react-bootstrap";
 import Container from "react-bootstrap/Container";
 import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
-import "../styles/styles.css";
-// import { EnvelopeFill } from "react-icons/fa";
+import "../styles/login.css";
+import { Button, Checkbox, Form, Input } from "antd";
+// import { useState } from "react";
 
 const Login = () => {
-  const [email, setEmail] = useState("");
-  const [password, setPassword] = useState("");
-
-  const handleEmailChange = (e) => {
-    setEmail(e.target.value);
+  const onFinish = (values) => {
+    console.log("Received values of form: ", values);
   };
 
-  const handlePasswordChange = (e) => {
-    setPassword(e.target.value);
-  };
+  // const [email, setEmail] = useState("");
+  // const [password, setPassword] = useState("");
 
-  const onSubmit = (e) => {
-    e.preventDefault();
-  };
+  // const handleEmailChange = (e) => {
+  //   setEmail(e.target.value);
+  // };
+
+  // const handlePasswordChange = (e) => {
+  //   setPassword(e.target.value);
+  // };
+
+  // const onSubmit = (e) => {
+  //   e.preventDefault();
+  // };
 
   return (
     <>
       <Container>
-        <Row>
+        <Row className="main-login">
           <Col className="login-left" md={7} sm={7} lg={7}>
             <Row className="justify-content-center form">
               <Col md={5} sm={5} lg={5}>
-                <Form onSubmit={onSubmit} className="w-100">
-                  <Form.Group controlId="formEmail">
-                    <Form.Label className="label">Email</Form.Label>
-
-                    <Form.Control
+                <Form
+                  name="normal_login"
+                  className="login-form"
+                  initialValues={{
+                    remember: true,
+                  }}
+                  onFinish={onFinish}
+                >
+                  <Form.Item
+                    name="email"
+                    rules={[
+                      {
+                        required: true,
+                        message: "Please enter your Email!",
+                      },
+                    ]}
+                  >
+                    <Input
                       className="input"
+                      prefix={<i className="ri-mail-send-fill"></i>}
                       type="email"
-                      placeholder="Enter email"
-                      value={email}
-                      onChange={handleEmailChange}
+                      placeholder="Email"
                     />
-                  </Form.Group>
-
-                  <Form.Group controlId="formPassword">
-                    <Form.Label className="label">Password</Form.Label>
-                    <Form.Control
+                  </Form.Item>
+                  <Form.Item
+                    name="password"
+                    rules={[
+                      {
+                        required: true,
+                        message: "Please enter your Password!",
+                      },
+                    ]}
+                  >
+                    <Input
                       className="input"
+                      prefix={<i className="ri-lock-unlock-fill"></i>}
                       type="password"
                       placeholder="Password"
-                      value={password}
-                      onChange={handlePasswordChange}
                     />
-                  </Form.Group>
-                  <div className="check">
-                    <div>
-                      <Form.Check label="Remember Me" name="group1" />
-                    </div>
-                    <div>Create Account?</div>
-                  </div>
-                  <Button variant="primary" type="submit" className="login">
-                    LOG IN
-                  </Button>
+                  </Form.Item>
+                  <Form.Item>
+                    <Form.Item name="remember" valuePropName="checked" noStyle>
+                      <Checkbox>Remember me</Checkbox>
+                    </Form.Item>
+
+                    <a className="login-form-forgot" href="">
+                      Create Account
+                    </a>
+                  </Form.Item>
+
+                  <Form.Item>
+                    <Button
+                      type="primary"
+                      htmlType="submit"
+                      className="login login-form-button"
+                    >
+                      Log in
+                    </Button>
+                  </Form.Item>
                 </Form>
               </Col>
             </Row>
