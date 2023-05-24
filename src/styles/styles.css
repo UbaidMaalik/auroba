@@ -1,0 +1,51 @@
+.search-input{
+    width: 220px;
+height: 40px;
+background: rgba(255, 255, 255, 0.5);
+box-shadow: 0px 0px 27px 2px rgba(0, 0, 0, 0.04);
+border-radius: 10px;
+margin-right: 1em;
+}
+.header{
+    padding: 0px 0 12px 0;
+    margin-bottom: 3.7em;
+}
+.page-title h3{
+    font-family: 'Poppins';
+font-style: normal;
+font-weight: 600;
+font-size: 28px;
+line-height: 42px;
+display: flex;
+align-items: center;
+color: #434041;
+}
+.notification{
+    width: 45px !important;
+height: 40px;
+box-shadow: 0px 0px 27px 2px rgba(0, 0, 0, 0.04);
+border-radius: 10px;
+}
+.notification:hover{
+    background: rgba(255, 255, 255, 0.5);
+}
+.ri-search-2-line{
+color: #434041;
+}
+.profile h3{
+    font-family: 'Poppins';
+font-style: normal;
+font-weight: 600;
+font-size: 22px !important;
+display: flex;
+align-items: center;
+color: #434041;
+line-height: 40px;
+}
+.edit{
+    width: 45px !important;
+    height: 40px;
+    box-shadow: 0px 0px 27px 2px rgba(0, 0, 0, 0.04);
+    border-radius: 10px;
+    margin-left: 5em;
+}

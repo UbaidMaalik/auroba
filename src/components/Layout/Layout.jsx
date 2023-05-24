@@ -1,5 +1,8 @@
 import { Col, Container, Row } from "react-bootstrap";
 import Sidebar from "../Sidebar/Sidebar";
+import Content from "../content/Content";
+import Header from "../Header/Header";
+import Footer from "../Footer/Footer";
 
 const Layout = () => {
   return (
@@ -10,7 +13,9 @@ const Layout = () => {
             <Sidebar />
           </Col>
           <Col md={10} sm={10} lg={10}>
-            main content
+            <Header />
+            <Content />
+            <Footer />
           </Col>
         </Row>
       </Container>

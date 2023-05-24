@@ -1,15 +1,12 @@
 import { Layout, Menu } from "antd";
 import { Image } from "react-bootstrap";
-
-// import {
-//   //   UserOutlined,
-//   LaptopOutlined,
-//   NotificationOutlined,
-// } from "@ant-design/icons";
 import "../../styles/sidebar.css";
+import { SidebarData } from "./SidebarData";
+
 const { Sider } = Layout;
 
 const Sidebar = () => {
+  console.log(SidebarData);
   return (
     <>
       <Sider width={200}>
@@ -21,14 +18,17 @@ const Sidebar = () => {
           defaultSelectedKeys={["1"]}
           style={{ height: "100%", borderRight: 0 }}
         >
-          <Menu.Item
-            key="1"
-            icon={<i className="ri-home-3-line"></i>}
-            style={{ backgroundColor: "#ded4fc", color: "#8970d6" }}
-          >
-            Dashboard
-          </Menu.Item>
-          <Menu.Item key="2" icon={<i className="ri-bookmark-2-line"></i>}>
+          {SidebarData.map((item) => (
+            <Menu.Item
+              key={item.id}
+              icon={<i className={item.icon}></i>}
+              style={{ backgroundColor: "#ded4fc", color: "#8970d6" }}
+            >
+              {item.title}
+            </Menu.Item>
+          ))}
+
+          {/* <Menu.Item key="2" icon={<i className="ri-bookmark-2-line"></i>}>
             Courses
           </Menu.Item>
           <Menu.Item key="3" icon={<i className="ri-chat-3-line"></i>}>
@@ -42,7 +42,7 @@ const Sidebar = () => {
           </Menu.Item>
           <Menu.Item key="6" icon={<i className="ri-home-gear-line"></i>}>
             Settings
-          </Menu.Item>
+          </Menu.Item> */}
         </Menu>
       </Sider>
     </>
